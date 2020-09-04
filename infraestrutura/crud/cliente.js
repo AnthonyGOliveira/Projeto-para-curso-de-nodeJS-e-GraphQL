@@ -7,13 +7,10 @@ class Cliente {
     return executaQuery(sql)
   }
 
-  buscaPorId(id) {
+  buscaPorId(res, id) {
     const sql = `SELECT * FROM Clientes WHERE id=${id}`
 
-    return executaQuery(sql)
-      .then(cliente => {
-        return cliente[0]
-      })
+    executaQuery(res, sql)
   }
 
   adiciona(item) {
