@@ -25,7 +25,7 @@ class Cliente {
   buscaPorId(res, id) {
     const sql = `SELECT * FROM Clientes WHERE id=${id}`
 
-    executaQuery(res, sql)
+    executaQuery(sql)
   }
 
   adiciona(item) {

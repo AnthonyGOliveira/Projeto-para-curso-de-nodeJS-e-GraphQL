@@ -24,7 +24,9 @@ const resolvers = {
   Query: {
     status: () => "Servidor rodando",
     clientes: () => Clientes.lista(),
-    pets: () => Pets.lista()
+    cliente: (root, {id}) => Clientes.buscaPorId(id),
+    pets: () => Pets.lista(),
+    pet: (root, {id}) => Pets.buscaPorId(id)
   },
   Mutation: {
     adicionaCliente: (root, params) => 
