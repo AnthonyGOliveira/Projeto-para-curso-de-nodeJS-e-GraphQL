@@ -9,8 +9,18 @@ type Cliente{
     cpf: String!
 }
 
+type Pet{
+    id: ID!
+    nome: String!
+    donoId: Int!
+    tipo: String
+    observacoes: String
+}
+
 type Mutation{
     adicionaCliente(nome: String!, cpf: String!): Cliente!
     atualizaCliente(id: ID!, nome: String!, cpf: String!): Cliente!
     deletaCliente(id: ID!): ID!
+
+    adicionaPet(nome: String!, donoId: Int!, tipo: String, observacoes: String): Pet!
 }
