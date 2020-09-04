@@ -2,9 +2,24 @@ const executaQuery = require('../database/queries')
 
 class Cliente {
   lista() {
-    const sql = 'SELECT * FROM Clientes'
+    const sql = `SELECT * FROM Clientes;
+    Select * FROM Pets`
 
     return executaQuery(sql)
+      .then(dados => {
+        const clientes = dados[0]
+        const pets = dados[1]
+
+        return clientes.map(cliente => {
+          const petsCliente = pets.filter(pet => 
+            pet.donoId === cliente.id)
+
+          return {
+            ...cliente,
+            pets: petsCliente
+          }
+        })
+      })
   }
 
   buscaPorId(res, id) {
