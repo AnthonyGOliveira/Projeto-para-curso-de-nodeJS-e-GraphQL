@@ -11,4 +11,6 @@ type Cliente{
 
 type Mutation{
     adicionaCliente(nome: String!, cpf: String!): Cliente!
+    atualizaCliente(id: ID!, nome: String!, cpf: String!): Cliente!
+    deletaCliente(id: ID!): ID!
 }

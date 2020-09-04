@@ -3,6 +3,7 @@ const {GraphQLServer} = require('graphql-yoga')
 const conexao = require('./infraestrutura/conexao')
 const Tabelas = require('./infraestrutura/database/tabelas')
 const Operacoes = require('./infraestrutura/operations')
+const { atualiza } = require('./infraestrutura/crud/cliente')
 
 //const app = customExpress()
 
@@ -25,7 +26,13 @@ const resolvers = {
   },
   Mutation: {
     adicionaCliente: (root, params) => 
-    Clientes.adiciona(params)
+    Clientes.adiciona(params),
+
+    atualizaCliente: (root, params) => 
+    Clientes.atualiza(params),
+
+    deletaCliente: (root, {id}) => 
+    Clientes.deleta(id)
   }
 }
 
