@@ -22,10 +22,20 @@ class Cliente {
       })
   }
 
-  buscaPorId(res, id) {
-    const sql = `SELECT * FROM Clientes WHERE id=${id}`
+  buscaPorId(id) {
+    const sql = `SELECT * FROM Clientes WHERE id=${id};
+    SELECT * FROM Pets WHERE donoId=${id}`
 
-    executaQuery(sql)
+    return executaQuery(sql)
+    .then(dados => {
+      const cliente = dados[0][0]
+      const pets = dados[1]
+
+      return ({
+        ...cliente,
+        pets: pets
+      })
+    })
   }
 
   adiciona(item) {
