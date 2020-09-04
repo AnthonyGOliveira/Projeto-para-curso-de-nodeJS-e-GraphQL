@@ -27,5 +27,6 @@ type Mutation{
     deletaCliente(id: ID!): ID!
 
     adicionaPet(nome: String!, donoId: Int!, tipo: String, observacoes: String): Pet!
-
+    atualizaPet(id: ID!, nome: String!, donoId: Int!, tipo: String, observacoes: String): Pet!
+    deletaPet(id: ID!): ID!
 }
