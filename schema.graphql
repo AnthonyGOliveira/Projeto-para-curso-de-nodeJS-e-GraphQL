@@ -1,6 +1,7 @@
 type Query {
     status: String!
     clientes: [Cliente!]!
+    cliente(id: ID!): Cliente!
 }
 
 type Cliente{
