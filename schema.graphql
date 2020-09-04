@@ -1,6 +1,7 @@
 type Query {
     status: String!
     clientes: [Cliente!]!
+    pets: [Pet!]
 }
 
 type Cliente{

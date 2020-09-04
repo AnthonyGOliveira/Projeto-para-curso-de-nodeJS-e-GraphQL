@@ -23,7 +23,8 @@ const Pets = new Operacoes('pet')
 const resolvers = {
   Query: {
     status: () => "Servidor rodando",
-    clientes: () => Clientes.lista()
+    clientes: () => Clientes.lista(),
+    pets: () => Pets.lista()
   },
   Mutation: {
     adicionaCliente: (root, params) => 

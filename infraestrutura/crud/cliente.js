@@ -1,7 +1,7 @@
 const executaQuery = require('../database/queries')
 
 class Cliente {
-  lista(res) {
+  lista() {
     const sql = 'SELECT * FROM Clientes'
 
     return executaQuery(sql)
